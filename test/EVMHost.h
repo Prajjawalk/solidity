@@ -34,7 +34,7 @@
 
 namespace solidity::test
 {
-using Address = util::h160;
+using Address = util::h256;
 using StorageMap = std::map<evmc::bytes32, evmc::storage_value>;
 
 class EVMHost: public evmc::MockedHost
@@ -89,7 +89,7 @@ public:
 	StorageMap const& get_address_storage(evmc::address const& _addr);
 
 	static Address convertFromEVMC(evmc::address const& _addr);
-	static evmc::address convertToEVMC(Address const& _addr);
+	static evmc::address convertToEVMCA(Address const& _addr);
 	static util::h256 convertFromEVMC(evmc::bytes32 const& _data);
 	static evmc::bytes32 convertToEVMC(util::h256 const& _data);
 private:
